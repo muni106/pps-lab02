@@ -20,4 +20,10 @@ class curryingTest {
     assertFalse(p1(x, yLower, zLower))
     assertFalse(p1(x, yWrong, zWrong))
     assertTrue(p1(x, y, z))
+
+  @Test def testCurryingP2(): Unit =
+    assertFalse(p2(x)(yLower)(zLower))
+    assertFalse(p2(x)(yWrong)(zWrong))
+    assertTrue(p2(x)(y)(z))
+
 }
