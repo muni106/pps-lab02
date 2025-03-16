@@ -8,7 +8,7 @@ object neg extends App{
   val notEmpty = neg(empty)
 
   println(notEmpty("ciao"))
-  println(notEmpty(""))
+  println(neg(empty)(""))
 
 
 }
