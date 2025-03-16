@@ -26,4 +26,11 @@ class curryingTest {
     assertFalse(p2(x)(yWrong)(zWrong))
     assertTrue(p2(x)(y)(z))
 
+  @Test def testCurryingP3(): Unit =
+    assertFalse(p3(x)(yLower)(zLower))
+    assertFalse(p3(x)(yWrong)(zWrong))
+    assertTrue(p3(x)(y)(z))
+
+
+
 }
