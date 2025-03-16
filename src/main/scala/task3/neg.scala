@@ -6,11 +6,9 @@ object neg extends App{
 
   val neg: (String => Boolean) => String => Boolean = pred => s => !pred(s)
 
-  def genericNeg[X](s: X, pred: (X => Boolean)) : Boolean =
+  def genericNeg[X](pred: (X => Boolean))(s: X) : Boolean =
     !pred(s)
 
   val notEmpty = neg(empty)
-
-
 
 }

@@ -19,9 +19,9 @@ class negTest {
     val falseZero: Int = 9
     val emptyString = ""
     val notEmptyString = "ciao"
-    assertFalse(genericNeg(emptyString, empty))
-    assertTrue(genericNeg(notEmptyString, empty))
-    assertFalse(genericNeg(trueZero, zero))
-    assertTrue(genericNeg(falseZero, zero))
+    assertFalse(genericNeg(empty)(emptyString))
+    assertTrue(genericNeg( empty)(notEmptyString))
+    assertFalse(genericNeg(zero)(trueZero))
+    assertTrue(genericNeg(zero)(falseZero))
 
 }
