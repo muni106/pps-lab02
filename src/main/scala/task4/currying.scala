@@ -8,5 +8,7 @@ object currying extends App {
   def p3(x: Int)(y: Int)(z: Int) =
     x <= y && y == z
 
+  def p4(x: Int, y: Int, z: Int) =
+    x <= y && y == z
 
 }
