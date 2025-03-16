@@ -1,11 +1,12 @@
-package task4
+package task2
 
-import org.junit.*
-import org.junit.Assert.*
-import currying.*
+import org.junit.Assert.{assertFalse, assertTrue}
+import org.junit.Test
+import task2.Functions.{genericNeg, neg, p1, p2, p3, p4}
 
-class curryingTest {
-
+class testFunctions {
+  val empty: String => Boolean = _ == ""
+  val zero: Int => Boolean = _ == 0
   val x: Int = 10
   val yLower: Int = 1
   val zLower: Int = 1
@@ -14,7 +15,19 @@ class curryingTest {
   val y: Int = 11
   val z: Int = 11
 
+  @Test def testNegFunc(): Unit =
+    assertFalse(neg(empty)(""))
+    assertTrue(neg(empty)("ciao"))
 
+  @Test def testGenericNegFunc(): Unit =
+    val trueZero: Int = 0
+    val falseZero: Int = 9
+    val emptyString = ""
+    val notEmptyString = "ciao"
+    assertFalse(genericNeg(empty)(emptyString))
+    assertTrue(genericNeg( empty)(notEmptyString))
+    assertFalse(genericNeg(zero)(trueZero))
+    assertTrue(genericNeg(zero)(falseZero))
 
   @Test def testCurryingP1(): Unit =
     assertFalse(p1(x, yLower, zLower))
@@ -35,7 +48,4 @@ class curryingTest {
     assertFalse(p4(x, yLower, zLower))
     assertFalse(p4(x, yWrong, zWrong))
     assertTrue(p4(x, y, z))
-
-
-
 }
