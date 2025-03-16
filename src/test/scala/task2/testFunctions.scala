@@ -1,8 +1,8 @@
 package task2
 
-import org.junit.Assert.{assertFalse, assertTrue}
+import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
-import task2.Functions.{genericNeg, neg, p1, p2, p3, p4}
+import task2.Functions.{compose, composeThree, genericCompose, genericNeg, neg, p1, p2, p3, p4}
 
 class testFunctions {
   val empty: String => Boolean = _ == ""
@@ -48,4 +48,10 @@ class testFunctions {
     assertFalse(p4(x, yLower, zLower))
     assertFalse(p4(x, yWrong, zWrong))
     assertTrue(p4(x, y, z))
+
+  @Test def testFunctionCompose(): Unit =
+    assertEquals(compose(_ - 1, _ * 2)(5), 9)
+    assertEquals(genericCompose[Int, Int, Int](_ - 1, _ * 2)(5), 9) // if you dont specify it's type => err
+    assertEquals(composeThree[Int, Int, String, String](_ + "!", _.toString, _ * 2)(3), "6!")
+
 }
