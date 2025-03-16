@@ -13,4 +13,12 @@ object Recursion extends App{
 
     _powerWithMemo(base, exponent, 1.0)
 
+  def reverseNumber(n: Int): Int =
+   @annotation.tailrec
+    def _reverseNumberAcc(n: Int, acc: Int) : Int = n match
+      case i if i % 10 != 0 => _reverseNumberAcc(n / 10, acc * 10 + n % 10)
+      case i if i % 10 == 0 => acc
+
+    _reverseNumberAcc(n, 0)
+
 }
