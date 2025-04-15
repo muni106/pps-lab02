@@ -7,6 +7,7 @@ object Functions {
   def genericNeg[X](pred: (X => Boolean))(s: X) : Boolean =
     !pred(s)
 
+  //
   val p1: (Int, Int, Int) => Boolean = (x, y, z) => x <= y && y == z
 
   val p2: Int => Int => Int => Boolean = x => y => z => x <= y && y == z
